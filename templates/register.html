@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', sans-serif;
+  color: #444;
+  background: linear-gradient(to bottom, rgb(152, 197, 249), rgb(95, 169, 249), rgb(35, 151, 253));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-box {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px rgba(31, 93, 134, 0.2);
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.register-box h2 {
+  font-size: 28px;
+  color: rgb(31, 93, 134);
+  margin-bottom: 30px;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.register-box label {
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  color: rgb(31, 93, 134);
+  margin-bottom: 8px;
+}
+
+.register-box input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid rgb(180, 210, 250);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.register-box button,
+.btn-link {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(to right, rgb(31, 93, 134), rgb(53, 125, 179));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(31, 93, 134, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.register-box button:hover,
+.btn-link:hover {
+  background: linear-gradient(to right, rgb(20, 80, 120), rgb(40, 110, 160));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(31, 93, 134, 0.3);
+}
+
+  </style>
+  <title>Register Wajah</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <div class="register-box">
+    <h2>Registrasi User Baru</h2>
+    <form action="{{ url_for('register') }}" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <div class="button-group">
+        <button type="submit">Mulai Scan Wajah</button>
+        <a href="{{ url_for('index') }}" class="btn-link">Home</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

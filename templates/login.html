@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(to bottom, rgb(152, 197, 249), rgb(95, 169, 249), rgb(35, 151, 253));
+  font-family: 'Fredoka', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #444;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-box h2 {
+  color: rgb(31, 93, 134);
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.login-box form,
+.login-box a {
+  display: block;
+  margin: 15px auto;
+}
+
+.login-box button {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgb(31, 93, 134);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: rgb(20, 80, 120);
+}
+
+button {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(to right, rgb(31, 93, 134), rgb(53, 125, 179));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(31, 93, 134, 0.2);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, rgb(20, 80, 120), rgb(40, 110, 160));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(31, 93, 134, 0.3);
+}
+
+      </style>
+      <title>Login</title>
+      <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>👤  Login dengan Wajah</h2>
+        <form method="post">
+            <button type="submit">Scan Wajah</button>
+        </form>
+        <a href="{{ url_for('index') }}"><button>Home</button></a>
+    </div>
+</body>
+</html>

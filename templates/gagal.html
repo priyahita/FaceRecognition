@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button-group button {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgb(31, 93, 134);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: rgb(20, 80, 120);
+}
+
+body {
+  background: linear-gradient(to bottom, rgb(152, 197, 249), rgb(95, 169, 249), rgb(35, 151, 253));
+  font-family: 'Fredoka', sans-serif;
+  padding: 20px;
+  color: #444;
+  text-align: center;
+  min-height: 100vh;
+}
+
+header {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.header {
+  
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(92, 126, 221);
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  color: rgb(31, 93, 134);
+  max-width: 600px;
+  margin: 40px auto; 
+}
+
+.header h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.header p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+  </style>
+  <title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="dashboard.css">	
+</head>
+<body>
+  <div class="header">
+    <h1>Muka tidak dikenali</h1>
+    <br>
+    <p>Anda gagal Login!</p>
+    <p id="date-hour"></p>
+    <br>
+    <div class="button-group">
+    <a href="{{ url_for('index') }}"><button>Home</button></a>
+    </div>
+</div>
+
+
+  <script>
+    const now = new Date();
+    const option = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    const date = now.toLocaleDateString('id-ID', option);
+    const hour = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+    document.getElementById("date-hour").innerText = `${date}, pukul ${hour}`;
+  </script>
+</body>
+</html>
