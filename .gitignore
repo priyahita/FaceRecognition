@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+
+# Ignore custom/test user datasets (keep Admin sample)
+dataset/*
+!dataset/Admin/
+
+# Ignore custom/test user models (keep Admin sample)
+models/*
+!models/Admin.yml

@@ -10,6 +10,11 @@ MODEL_DIR = "models"
 os.makedirs(MODEL_DIR, exist_ok=True)
 os.makedirs(DATASET_DIR, exist_ok=True)
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CASCADE_PATH = os.path.join(getattr(cv2.data, "haarcascades", ""), "haarcascade_frontalface_default.xml")
+if not os.path.exists(CASCADE_PATH):
+    CASCADE_PATH = os.path.join(BASE_DIR, "haarcascade_frontalface_default.xml")
+
 # Halaman utama
 @app.route("/")
 def index():
@@ -19,9 +24,7 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        face_cascade = cv2.CascadeClassifier(
-            cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
-        )
+        face_cascade = cv2.CascadeClassifier(CASCADE_PATH)
 
         cap = cv2.VideoCapture(0)
         matched_user = None
@@ -91,7 +94,7 @@ def register():
         os.makedirs(user_folder, exist_ok=True)
 
         cap = cv2.VideoCapture(0)
-        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        face_cascade = cv2.CascadeClassifier(CASCADE_PATH)
         count = 0
 
         while count < 30:
